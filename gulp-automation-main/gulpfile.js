@@ -38,7 +38,10 @@ function minifyCss(cb) {
 // Task C
 function minifyJs(cb) {
     // TO DO
-    cb()
+    return src([srcPath + 'styles/*.js'])
+        .pipe(uglify())
+        .pipe(dest(destPath + 'styles/'))
+
 }
 
 // -----------------
@@ -59,7 +62,12 @@ exports.minify = parallel(
 // Task 3. Execute tasks when a change occurs
 exports.watch = function(cb) {
     // TO DO
-    cb()
+    watch('src/*',{events: 'change'}, function(cb){
+	// Version 1 body
+	// copySourceFiles
+	// Version 2 body
+	this.update
+    })
 }
 
 // Task 4. Execute tasks 1 and 2
